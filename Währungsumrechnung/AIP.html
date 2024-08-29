@@ -4,36 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Einfaches Formular</title>
+    <title>Währungsumrechner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input, select, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            cursor: pointer;
+        }
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h2>Einfaches Formular</h2>
-    <form>
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name" placeholder="Dein Name"><br><br>
+    <h1>Währungsumrechner</h1>
+    <input type="number" id="euroAmount" placeholder="Betrag in Euro" step="0.01">
+    <select id="currency">
+        <option value="USD">US-Dollar (USD)</option>
+        <option value="GBP">Britisches Pfund (GBP)</option>
+        <option value="JPY">Japanischer Yen (JPY)</option>
+        <option value="INR">Indische Rupie (INR)</option>
+    </select>
+    <button onclick="convertCurrency()">Umrechnen</button>
 
-        <label for="betrag">Betrag:</label><br>
-        <input type="number" id="betrag" name="betrag" placeholder="Betrag"><br><br>
+    <h2 id="result"></h2>
 
-        <label for="waehrung">Währung:</label><br>
-        <select id="waehrung" name="waehrung">
-            <option value="eur">EUR - Euro</option>
-            <option value="usd">USD - US Dollar</option>
-            <option value="gbp">GBP - Britisches Pfund</option>
-            <option value="jpy">JPY - Japanischer Yen</option>
-            <option value="aud">AUD - Australischer Dollar</option>
-            <option value="cad">CAD - Kanadischer Dollar</option>
-            <option value="chf">CHF - Schweizer Franken</option>
-            <option value="cny">CNY - Chinesischer Yuan</option>
-            <option value="inr">INR - Indische Rupie</option>
-            <option value="rub">RUB - Russischer Rubel</option>
-            <option value="brl">BRL - Brasilianischer Real</option>
-            <option value="zar">ZAR - Südafrikanischer Rand</option>
-            <option value="sek">SEK - Schwedische Krone</option>
-            <option value="nzd">NZD - Neuseeländischer Dollar</option>
-        </select><br><br>
+    <script>
+        async function convertCurrency() {
+            const euroAmount = parseFloat(document.getElementById("euroAmount").value);
+            const currency = document.getElementById("currency").value;
+            const apiUrl = `https://api.exchangerate-api.com/v4/latest/EUR`; // Beispiel-API-URL
 
-        <button type="submit">Absenden</button>
-    </form>
+            if (isNaN(euroAmount) || euroAmount <= 0) {
+                document.getElementById("result").innerText = "Bitte einen gültigen Euro-Betrag eingeben.";
+                return;
+            }
+
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    throw new Error('Netzwerkantwort war nicht ok.');
+                }
+                const data = await response.json();
+
+                if (!data.rates || !data.rates[currency]) {
+                    throw new Error('Unbekannte Währung');
+                }
+
+                const exchangeRate = data.rates[currency];
+                const convertedAmount = euroAmount * exchangeRate;
+                document.getElementById("result").innerText = `Der Betrag von ${euroAmount.toFixed(2)} EUR entspricht ${convertedAmount.toFixed(2)} ${currency}.`;
+            } catch (error) {
+                document.getElementById("result").innerText = `Fehler: ${error.message}`;
+            }
+        }
+    </script>
 </body>
 </html>
