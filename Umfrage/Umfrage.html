@@ -1,198 +1,53 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Umfragen: Lieblingsjahreszeit und Lieblingsreiseziel</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            padding: 20px;
-        }
-        .survey-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            margin: 20px auto;
-        }
-        h2 {
-            color: #333;
-        }
-        .question {
-            margin-bottom: 15px;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        .result {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #e0ffe0;
-            border-radius: 5px;
-        }
-    </style>
+    <title>Umfragen</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-<!-- Erste Umfrage: Lieblingsjahreszeit -->
- <div>
-<div class="survey-container">
-    <h2>Welche Jahreszeit magst du am liebsten?</h2>
-    <form id="seasonForm">
-        <div class="question">
-            <p>1. Was machst du am liebsten an einem freien Tag?</p>
-            <label><input type="radio" name="q1" value="Herbst"> Spazieren gehen und die Natur beobachten</label><br>
-            <label><input type="radio" name="q1" value="Frühling"> Ein Picknick im Park</label><br>
-            <label><input type="radio" name="q1" value="Winter"> Gemütlich drinnen bleiben und einen Film schauen</label><br>
-            <label><input type="radio" name="q1" value="Sommer"> Am Strand liegen und die Sonne genießen</label>
-        </div>
-
-        <div class="question">
-            <p>2. Welche Farben gefallen dir am besten?</p>
-            <label><input type="radio" name="q2" value="Herbst"> Warme Erdtöne wie Braun und Orange</label><br>
-            <label><input type="radio" name="q2" value="Frühling"> Pastellfarben wie Rosa und Hellgrün</label><br>
-            <label><input type="radio" name="q2" value="Winter"> Kühle Töne wie Blau und Weiß</label><br>
-            <label><input type="radio" name="q2" value="Sommer"> Leuchtende Farben wie Gelb und Rot</label>
-        </div>
-
-        <div class="question">
-            <p>3. Was ist dein Lieblingsgetränk?</p>
-            <label><input type="radio" name="q3" value="Herbst"> Warmer Tee oder heiße Schokolade</label><br>
-            <label><input type="radio" name="q3" value="Frühling"> Erfrischender Eistee oder Limonade</label><br>
-            <label><input type="radio" name="q3" value="Winter"> Heißer Glühwein oder Punsch</label><br>
-            <label><input type="radio" name="q3" value="Sommer"> Kaltes Wasser oder ein Smoothie</label>
-        </div>
-
-        <div class="question">
-            <p>4. Wie würdest du deine perfekte Reise beschreiben?</p>
-            <label><input type="radio" name="q4" value="Herbst"> Eine Wanderung durch farbenfrohe Wälder</label><br>
-            <label><input type="radio" name="q4" value="Frühling"> Ein Ausflug zu blühenden Gärten und Seen</label><br>
-            <label><input type="radio" name="q4" value="Winter"> Eine Reise in die Berge mit Kaminfeuer</label><br>
-            <label><input type="radio" name="q4" value="Sommer"> Ein Strandurlaub mit viel Sonne</label>
-        </div>
-
-        <div class="question">
-            <p>5. Wie fühlst du dich, wenn es regnet?</p>
-            <label><input type="radio" name="q5" value="Herbst"> Entspannt, mag das Geräusch von Regen</label><br>
-            <label><input type="radio" name="q5" value="Frühling"> Erinnert mich an die blühende Natur</label><br>
-            <label><input type="radio" name="q5" value="Winter"> Perfektes Wetter für Gemütlichkeit</label><br>
-            <label><input type="radio" name="q5" value="Sommer"> Regen? Nein, ich will Sonne!</label>
-        </div>
-        <!-- Weitere Fragen... -->
-        
-        <button type="button" onclick="evaluateSeason()">Ergebnis anzeigen</button>
-    </form>
-    
-    <div id="seasonResult" class="result" style="display:none;">
-        <h3>Deine Lieblingsjahreszeit ist:</h3>
-        <p id="seasonOutput"></p>
+    <!-- Benutzername-Eingabe -->
+    <div class="username-page">
+        <h1>Willkommen zu den Umfragen</h1>
+        <p>Bitte gib deinen Namen ein, um fortzufahren:</p>
+        <input type="text" id="username-input" placeholder="Dein Name" />
+        <button onclick="goToStartPage()">Weiter</button>
     </div>
-</div>
-</div>
 
-<!-- Zweite Umfrage: Lieblingsreiseziel -->
- <div>
-<div class="survey-container">
-    <h2>Welches Reiseziel passt am besten zu dir?</h2>
-    <form id="destinationForm">
-        <div class="question">
-            <p>1. Wie verbringst du deinen perfekten Urlaubstag?</p>
-            <label><input type="radio" name="d_q1" value="Strand"> Entspannen am Strand und die Sonne genießen</label><br>
-            <label><input type="radio" name="d_q1" value="Stadt"> Sightseeing und Museen besuchen</label><br>
-            <label><input type="radio" name="d_q1" value="Berge"> Wandern in den Bergen</label><br>
-            <label><input type="radio" name="d_q1" value="Land"> Ein ruhiger Tag auf dem Land</label>
+    <!-- Startseite -->
+    <div class="start-page" style="display: none;">
+        <h1>Hallo, <span id="user-name"></span>! Wähle eine Umfrage aus:</h1>
+        <div class="quiz-selection">
+            <button onclick="startSurvey('season')">Welche Jahreszeit passt zu dir?</button>
+            <button onclick="startSurvey('style')">Welcher Style bist du?</button>
+            <button onclick="startSurvey('hobby')">Welches Hobby passt zu dir?</button>
+            <button onclick="startSurvey('food')">Welches Essen passt zu dir?</button>
+            <button onclick="startSurvey('travel')">Wohin solltest du reisen?</button>
         </div>
-
-        <div class="question">
-            <p>2. Was ist deine Lieblingsaktivität im Urlaub?</p>
-            <label><input type="radio" name="q2" value="Strand"> Schwimmen oder Wassersport</label><br>
-            <label><input type="radio" name="q2" value="Stadt"> Shopping und neue Restaurants ausprobieren</label><br>
-            <label><input type="radio" name="q2" value="Berge"> Bergsteigen oder Skifahren</label><br>
-            <label><input type="radio" name="q2" value="Land"> Radfahren oder Spazierengehen in der Natur</label>
-        </div>
-
-        <div class="question">
-            <p>3. Welches Klima bevorzugst du im Urlaub?</p>
-            <label><input type="radio" name="q3" value="Strand"> Heiß und sonnig</label><br>
-            <label><input type="radio" name="q3" value="Stadt"> Milder Temperaturen, wenig Regen</label><br>
-            <label><input type="radio" name="q3" value="Berge"> Kalt und frisch, eventuell Schnee</label><br>
-            <label><input type="radio" name="q3" value="Land"> Gemäßigt mit mildem Wetter</label>
-        </div>
-
-        <div class="question">
-            <p>4. Welche Landschaft bevorzugst du?</p>
-            <label><input type="radio" name="q4" value="Strand"> Ozean und Sandstrände</label><br>
-            <label><input type="radio" name="q4" value="Stadt"> Urbane Skylines und historische Gebäude</label><br>
-            <label><input type="radio" name="q4" value="Berge"> Hohe Berge und Täler</label><br>
-            <label><input type="radio" name="q4" value="Land"> Weite Felder und Wälder</label>
-        </div>
-
-        <div class="question">
-            <p>5. Wie wichtig ist dir Ruhe und Entspannung im Urlaub?</p>
-            <label><input type="radio" name="q5" value="Strand"> Sehr wichtig, ich möchte komplett abschalten</label><br>
-            <label><input type="radio" name="q5" value="Stadt"> Nicht so wichtig, ich will Action</label><br>
-            <label><input type="radio" name="q5" value="Berge"> Ich möchte Ruhe, aber auch Aktivität</label><br>
-            <label><input type="radio" name="q5" value="Land"> Eine ruhige und natürliche Umgebung</label>
-        </div>
-
-        <!-- Weitere Fragen... -->
-        
-        <button type="button" onclick="evaluateDestination()">Ergebnis anzeigen</button>
-    </form>
-
-    <div id="destinationResult" class="result" style="display:none;">
-        <h3>Dein ideales Reiseziel ist:</h3>
-        <p id="destinationOutput"></p>
     </div>
-</div>
-</div>
 
-<script>
-    function evaluateSeason() {
-        const form = document.getElementById('seasonForm');
-        let scores = { Herbst: 0, Frühling: 0, Winter: 0, Sommer: 0 };
+    <!-- Umfrage -->
+    <div class="survey-container" style="display: none;">
+        <h2 id="survey-title"></h2>
+        <div class="question-container">
+            <p class="question"></p>
+            <div class="answers">
+                <!-- Dynamisch generierte Antworten -->
+            </div>
+        </div>
+        <button class="next-button" onclick="nextQuestion()">Weiter</button>
+    </div>
 
-        for (let i = 1; i <= 5; i++) {
-            const selected = form['q' + i] && form['q' + i].value;
-            if (selected) {
-                scores[selected]++;
-            }
-        }
+    <!-- Ergebnis -->
+    <div class="result-page" style="display: none;">
+        <h2>Ergebnis</h2>
+        <p id="result-text"></p>
+        <div id="result-effect"></div>
+        <button onclick="restart()">Zurück zur Startseite</button>
+    </div>
 
-        let favoriteSeason = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
-
-        document.getElementById('seasonOutput').textContent = favoriteSeason;
-        document.getElementById('seasonResult').style.display = 'block';
-    }
-
-    function evaluateDestination() {
-        const form = document.getElementById('destinationForm');
-        let scores = { Strand: 0, Stadt: 0, Berge: 0, Land: 0 };
-
-        for (let i = 1; i <= 5; i++) {
-            const selected = form['d_q' + i] && form['d_q' + i].value;
-            if (selected) {
-                scores[selected]++;
-            }
-        }
-
-        let favoriteDestination = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
-
-        document.getElementById('destinationOutput').textContent = favoriteDestination;
-        document.getElementById('destinationResult').style.display = 'block';
-    }
-</script>
-
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti"></script>
 </body>
 </html>
