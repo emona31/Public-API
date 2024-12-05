@@ -22,6 +22,16 @@ const surveys = {
         ],
         results: ["Elegant", "Sportlich", "Casual"]
     },
+    Hobby: {
+        title: "Welches Hobby passt zu dir?",
+        questions: [
+            { question: "Welche Farbe dominiert deinen Kleiderschrank?", answers: ["Schwarz", "Weiß", "Bunt"] },
+            { question: "Wie kleidest du dich gerne?", answers: ["Elegant", "Sportlich", "Leger"] },
+            { question: "Welches Accessoire passt zu dir?", answers: ["Uhr", "Sonnenbrille", "Tasche"] },
+        ],
+        results: ["Elegant", "Sportlich", "Casual"]
+    },
+    
     // Weitere Umfragen können hier hinzugefügt werden
 };
 
