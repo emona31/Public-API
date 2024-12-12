@@ -30,7 +30,7 @@ const surveys = {
             { question: "Welches Accessoire passt zu dir?", answers: ["Uhr", "Sonnenbrille", "Tasche"] },
         ],
         results: ["Elegant", "Sportlich", "Casual"]
-    },
+    }
     
     // Weitere Umfragen können hier hinzugefügt werden
 };

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mehrere Quizze</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .quiz-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .question {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .answers {
+            margin-bottom: 20px;
+        }
+        .answers label {
+            display: block;
+            margin: 8px 0;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        .result {
+            display: none;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
+        .quiz-section {
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Alle Quizze</h1>
+
+    <!-- Quiz 1: Tiere -->
+    <div class="quiz-section">
+        <h2>Tier-Quiz</h2>
+        <div class="quiz-container">
+            <form id="quizForm1">
+                <div class="question">
+                    <p>Frage 1: Welches Tier hat einen langen Rüssel?</p>
+                    <div class="answers">
+                        <label><input type="radio" name="q1" value="a"> a) Elefant</label>
+                        <label><input type="radio" name="q1" value="b"> b) Tiger</label>
+                        <label><input type="radio" name="q1" value="c"> c) Giraffe</label>
+                        <label><input type="radio" name="q1" value="d"> d) Zebra</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>Frage 2: Welches Gas atmet ein Mensch ein, um zu überleben?</p>
+                    <div class="answers">
+                        <label><input type="radio" name="q2" value="a"> a) Kohlenstoffdioxid</label>
+                        <label><input type="radio" name="q2" value="b"> b) Sauerstoff</label>
+                        <label><input type="radio" name="q2" value="c"> c) Stickstoff</label>
+                        <label><input type="radio" name="q2" value="d"> d) Argon</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>Frage 3: Welches Tier ist ein Bär?</p>
+                    <div class="answers">
+                        <label><input type="radio" name="q3" value="a"> a) Bär</label>
+                        <label><input type="radio" name="q3" value="b"> b) Katze</label>
+                        <label><input type="radio" name="q3" value="c"> c) Hund</label>
+                        <label><input type="radio" name="q3" value="d"> d) Elefant</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>Frage 4: Was ist das wichtigste Element für das Pflanzenwachstum?</p>
+                    <div class="answers">
+                        <label><input type="radio" name="q4" value="a"> a) Wasser</label>
+                        <label><input type="radio" name="q4" value="b"> b) Boden</label>
+                        <label><input type="radio" name="q4" value="c"> c) Sonnenlicht</label>
+                        <label><input type="radio" name="q4" value="d"> d) Luft</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>Frage 5: Welche Blume ist die Nationalblume von England?</p>
+                    <div class="answers">
+                        <label><input type="radio" name="q5" value="a"> a) Tulpe</label>
+                        <label><input type="radio" name="q5" value="b"> b) Rose</label>
+                        <label><input type="radio" name="q5" value="c"> c) Lilie</label>
+                        <label><input type="radio" name="q5" value="d"> d) Orchidee</label>
+                    </div>
+                </div>
+                <button type="button" class="submit-btn" onclick="submitQuiz1()">Abschicken</button>
+            </form>
+
+            <div id="result1" class="result">
+                <h3>Ergebnisse:</h3>
+                <p id="q1Result1"></p>
+                <p id="q2Result1"></p>
+                <p id="q3Result1"></p>
+                <p id="q4Result1"></p>
+                <p id="q5Result1"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz 2: Politik -->
+    <div class="quiz-section">
+        <h2>Politik-Quiz</h2>
+        <div class="quiz-container">
+            <form id="quizForm2">
+                <div class="question">
+                    <p>Frage 1: Wer ist der Bundeskanzler von Deutschland (2024)?</p>
+                    <div class="answers">
+                        <label><input type="radio" name="q1" value="a"> a) Angela Merkel</label>
+                        <label><input type="radio" name="q1" value="b"> b) Olaf Scholz</label>
+                        <label><input type="radio" name="q1" value="c"> c) Frank-Walter Steinmeier</label>
+                        <label><input type="radio" name="q1" value="d"> d) Friedrich Merz</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>Frage 2: Welche Partei regiert momentan in den USA?</p>
+                    <div class="answers">
+                        <label><input type="radio" name="q2" value="a"> a) Republikanische Partei</label>
+                        <label><input type="radio" name="q2" value="b"> b) Demokratische Partei</label>
+                        <label><input type="radio" name="q2" value="c"> c) Libertäre Partei</label>
+                        <label><input type="radio" name="q2" value="d"> d) Grüne Partei</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>Frage 3: In welchem Jahr fiel die Berliner Mauer?</p>
+                    <div class="answers">
+                        <label><input type="radio" name="q3" value="a"> a) 1989</label>
+                        <label><input type="radio" name="q3" value="b"> b) 1975</label>
+                        <label><input type="radio" name="q3" value="c"> c) 2000</label>
+                        <label><input type="radio" name="q3" value="d"> d) 1968</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>Frage 4: Wer war der erste Präsident der USA?</p>
+                    <div class="answers">
+                        <label><input type="radio" name="q4" value="a"> a) George Washington</label>
+                        <label><input type="radio" name="q4" value="b"> b) Abraham Lincoln</label>
+                        <label><input type="radio" name="q4" value="c"> c) Thomas Jefferson</label>
+                        <label><input type="radio" name="q4" value="d"> d) John F. Kennedy</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>Frage 5: Was ist die Hauptaufgabe des Deutschen Bundestages?</p>
+                    <div class="answers">
+                        <label><input type="radio" name="q5" value="a"> a) Die Gesetze zu erlassen</label>
+                        <label><input type="radio" name="q5" value="b"> b) Die Steuern zu erheben</label>
+                        <label><input type="radio" name="q5" value="c"> c) Die Regierung zu wählen</label>
+                        <label><input type="radio" name="q5" value="d"> d) Alle genannten Aufgaben</label>
+                    </div>
+                </div>
+                <button type="button" class="submit-btn" onclick="submitQuiz2()">Abschicken</button>
+            </form>
+
+            <div id="result2" class="result">
+                <h3>Ergebnisse:</h3>
+                <p id="q1Result2"></p>
+                <p id="q2Result2"></p>
+                <p id="q3Result2"></p>
+                <p id="q4Result2"></p>
+                <p id="q5Result2"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz 1: Tiere
+        function submitQuiz1() {
+            const answers1 = {
+                q1: 'a',  // Elefant
+                q2: 'b',  // Sauerstoff
+                q3: 'a',  // Bär
+                q4: 'c',  // Sonnenlicht
+                q5: 'b'   // Rose
+            };
+
+            let correctAnswers1 = 0;
+
+            for (let i = 1; i <= 5; i++) {
+                const userAnswer = document.querySelector(`input[name="q${i}"]:checked`);
+                const resultElement = document.getElementById(`q${i}Result1`);
+                if (userAnswer) {
+                    if (userAnswer.value === answers1[`q${i}`]) {
+                        resultElement.innerHTML = `Frage ${i}: <span class="correct">Richtig!</span>`;
+                        correctAnswers1++;
+                    } else {
+                        resultElement.innerHTML = `Frage ${i}: <span class="incorrect">Falsch!</span>`;
+                    }
+                } else {
+                    resultElement.innerHTML = `Frage ${i}: <span class="incorrect">Keine Antwort gegeben!</span>`;
+                }
+            }
+
+            document.getElementById('result1').style.display = 'block';
+        }
+
+        // Quiz 2: Politik
+        function submitQuiz2() {
+            const answers2 = {
+                q1: 'b',  // Olaf Scholz
+                q2: 'b',  // Demokratische Partei
+                q3: 'a',  // 1989
+                q4: 'a',  // George Washington
+                q5: 'd'   // Alle genannten Aufgaben
+            };
+
+            let correctAnswers2 = 0;
+
+            for (let i = 1; i <= 5; i++) {
+                const userAnswer = document.querySelector(`input[name="q${i}"]:checked`);
+                const resultElement = document.getElementById(`q${i}Result2`);
+                if (userAnswer) {
+                    if (userAnswer.value === answers2[`q${i}`]) {
+                        resultElement.innerHTML = `Frage ${i}: <span class="correct">Richtig!</span>`;
+                        correctAnswers2++;
+                    } else {
+                        resultElement.innerHTML = `Frage ${i}: <span class="incorrect">Falsch!</span>`;
+                    }
+                } else {
+                    resultElement.innerHTML = `Frage ${i}: <span class="incorrect">Keine Antwort gegeben!</span>`;
+                }
+            }
+
+            document.getElementById('result2').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
