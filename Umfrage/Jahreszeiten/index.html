@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welche Jahreszeit bist du?</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welche Jahreszeit bist du?</h1>
+    </header>
+
+    <main>
+        <div id="survey-container">
+            <div id="question-container">
+                <p id="question">Drücke "Start" um zu beginnen!</p>
+                <div id="button-container">
+                    <button id="start-button">Start</button>
+                    <button id="yes-button" class="hidden">Ja</button>
+                    <button id="no-button" class="hidden">Nein</button>
+                </div>
+            </div>
+
+            <div id="result-container" class="hidden">
+                <h2>Du bist: <span id="result"></span></h2>
+                <img id="season-icon" src="" alt="Saison-Icon">
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>
+            Icons von <a href="https://www.flaticon.com/" target="_blank" rel="noopener noreferrer">Flaticon</a>, 
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.4.0/confetti.browser.min.js"></script>
+</body>
+</html>
